@@ -17,7 +17,7 @@ import {
   onUnmounted,
   reactive,
   ref,
-  toRefs,
+  // toRefs,
   computed,
   watchEffect,
   watch
@@ -44,21 +44,25 @@ export default defineComponent({
     });
 
     const obj = reactive({ count: 0 }); // 适用对象进行响应代理
-    const data: any = reactive({
-      todoList: [],
-      todoItem: "",
-      todoLength: computed(() => {
-        return data.todoList.filter(
-          (item: { [key: string]: any }) => !item.completed
-        ).length;
-      })
-    });
+    // const data: {
+    //   todoList: { [key: string]: any }[];
+    //   todoItem: string;
+    //   todoLength: number;
+    // } = reactive({
+    //   todoList: [],
+    //   todoItem: "",
+    //   todoLength: computed(() => {
+    //     return data.todoList.filter(
+    //       (item: { [key: string]: any }) => !item.completed
+    //     ).length;
+    //   })
+    // });
     const count = ref<string | number>(0); // ref 接收一个参数返回响应式且能改变的ref对象。若接收对象 则调用reactive进行深层响应转换
 
     const plusOne = computed(() => "countL" + count.value);
 
     const stop = watchEffect(() => console.log(count.value));
-    // stop() 可停止
+    stop(); // 可停止
 
     const jokeData = reactive({
       type: "video",
@@ -95,7 +99,7 @@ export default defineComponent({
 
     return {
       obj,
-      ...toRefs(data),
+      // ...toRefs(data),
       count,
       plusOne,
       position,
