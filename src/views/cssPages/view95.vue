@@ -1,10 +1,10 @@
 <template>
   <div class="view95">
-    <a href="#" data-id="1" @click="handleClick">
+    <a href="javaScript:;" data-id="1" @click="handleClick">
       <span v-for="item in spanList1" :key="item" :style="item"></span>
       button1
     </a>
-    <a href="#" data-id="2" @click="handleClick">
+    <a href="javaScript:;" data-id="2" @click="handleClick">
       <span v-for="item in spanList2" :key="item" :style="item"></span>
       button2
     </a>

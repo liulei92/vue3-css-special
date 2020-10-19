@@ -25,6 +25,10 @@ const routes: Array<RouteRecordRaw> = [
     redirect: "/css/default",
     children: [
       {
+        path: "",
+        redirect: "/css/default"
+      },
+      {
         path: "default",
         name: "Default",
         component: () =>
@@ -37,7 +41,8 @@ const routes: Array<RouteRecordRaw> = [
           import(/* webpackChunkName: "css.95" */ "../views/cssPages/view95.vue")
       }
     ]
-  }
+  },
+  { path: '/*', redirect: '/home' }
 ];
 
 const router = createRouter({
